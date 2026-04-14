@@ -64,7 +64,7 @@ final class IRCCClient {
         s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
           <s:Body>
             <u:X_SendIRCC xmlns:u="urn:schemas-sony-com:service:IRCC:1">
-              <IRCCCode>\(command.rawValue)</IRCCCode>
+              <IRCCCode>\(command.code)</IRCCCode>
             </u:X_SendIRCC>
           </s:Body>
         </s:Envelope>

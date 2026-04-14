@@ -1,54 +1,99 @@
 import Foundation
 
-enum IRCCCommand: String, CaseIterable, Identifiable {
+enum IRCCCommand: CaseIterable, Identifiable {
     // Power
-    case power        = "AAAAAQAAAAEAAAAVAw=="
+    case power
 
     // Volume
-    case volumeUp     = "AAAAAQAAAAEAAAASAw=="
-    case volumeDown   = "AAAAAQAAAAEAAAATAw=="
-    case mute         = "AAAAAQAAAAEAAAAUAw=="
+    case volumeUp
+    case volumeDown
+    case mute
 
     // Channel
-    case channelUp    = "AAAAAQAAAAEAAAAQAw=="
-    case channelDown  = "AAAAAQAAAAEAAAARAw=="
+    case channelUp
+    case channelDown
 
     // D-Pad
-    case up           = "AAAAAQAAAAEAAAB0Aw=="
-    case down         = "AAAAAQAAAAEAAAB1Aw=="
-    case left         = "AAAAAQAAAAEAAAB2Aw=="
-    case right        = "AAAAAQAAAAEAAAB3Aw=="
-    case confirm      = "AAAAAQAAAAEAAABlAw=="
+    case up
+    case down
+    case left
+    case right
+    case confirm
 
     // Navigation
-    case home         = "AAAAAQAAAAEAAABgAw=="
-    case back         = "AAAAAgAAAJcAAAAjAw=="
-    case options      = "AAAAAgAAAJcAAAA2Aw=="
-    case menu         = "AAAAAQAAAAEAAAADAw=="
+    case home
+    case back
+    case options
+    case menu
 
     // Media
-    case play         = "AAAAAgAAAJcAAAAaAw=="
-    case pause        = "AAAAAgAAAJcAAAAZAw=="
-    case stop         = "AAAAAgAAAJcAAAAYAw=="
-    case rewind       = "AAAAAgAAAJcAAAAbAw=="
-    case forward      = "AAAAAgAAAJcAAAAcAw=="
+    case play
+    case pause
+    case stop
+    case rewind
+    case forward
 
     // Numeric
-    case num0         = "AAAAAQAAAAEAAAAJAw=="
-    case num1         = "AAAAAQAAAAEAAAAKAw=="
-    case num2         = "AAAAAQAAAAEAAAALAw=="
-    case num3         = "AAAAAQAAAAEAAAAMAw=="
-    case num4         = "AAAAAQAAAAEAAAANAw=="
-    case num5         = "AAAAAQAAAAEAAAAOAw=="
-    case num6         = "AAAAAQAAAAEAAAAPAw=="
-    case num7         = "AAAAAQAAAAEAAAAQAw=="
-    case num8         = "AAAAAQAAAAEAAAARAw=="
-    case num9         = "AAAAAQAAAAEAAAASAw=="
+    // NOTE: num7/8/9 intentionally share codes with channelUp/channelDown/volumeUp.
+    // Sony TVs use the same byte codes for these buttons and distinguish them by
+    // the current context (live TV mode vs. app mode).
+    case num0
+    case num1
+    case num2
+    case num3
+    case num4
+    case num5
+    case num6
+    case num7
+    case num8
+    case num9
 
     // Input
-    case input        = "AAAAAQAAAAEAAAAlAw=="
+    case input
 
-    var id: String { rawValue }
+    // MARK: - IRCC byte code
+
+    var code: String {
+        switch self {
+        case .power:        return "AAAAAQAAAAEAAAAVAw=="
+        case .volumeUp:     return "AAAAAQAAAAEAAAASAw=="
+        case .volumeDown:   return "AAAAAQAAAAEAAAATAw=="
+        case .mute:         return "AAAAAQAAAAEAAAAUAw=="
+        case .channelUp:    return "AAAAAQAAAAEAAAAQAw=="
+        case .channelDown:  return "AAAAAQAAAAEAAAARAw=="
+        case .up:           return "AAAAAQAAAAEAAAB0Aw=="
+        case .down:         return "AAAAAQAAAAEAAAB1Aw=="
+        case .left:         return "AAAAAQAAAAEAAAB2Aw=="
+        case .right:        return "AAAAAQAAAAEAAAB3Aw=="
+        case .confirm:      return "AAAAAQAAAAEAAABlAw=="
+        case .home:         return "AAAAAQAAAAEAAABgAw=="
+        case .back:         return "AAAAAgAAAJcAAAAjAw=="
+        case .options:      return "AAAAAgAAAJcAAAA2Aw=="
+        case .menu:         return "AAAAAQAAAAEAAAADAw=="
+        case .play:         return "AAAAAgAAAJcAAAAaAw=="
+        case .pause:        return "AAAAAgAAAJcAAAAZAw=="
+        case .stop:         return "AAAAAgAAAJcAAAAYAw=="
+        case .rewind:       return "AAAAAgAAAJcAAAAbAw=="
+        case .forward:      return "AAAAAgAAAJcAAAAcAw=="
+        case .num0:         return "AAAAAQAAAAEAAAAJAw=="
+        case .num1:         return "AAAAAQAAAAEAAAAKAw=="
+        case .num2:         return "AAAAAQAAAAEAAAALAw=="
+        case .num3:         return "AAAAAQAAAAEAAAAMAw=="
+        case .num4:         return "AAAAAQAAAAEAAAANAw=="
+        case .num5:         return "AAAAAQAAAAEAAAAOAw=="
+        case .num6:         return "AAAAAQAAAAEAAAAPAw=="
+        case .num7:         return "AAAAAQAAAAEAAAAQAw=="  // same wire code as channelUp
+        case .num8:         return "AAAAAQAAAAEAAAARAw=="  // same wire code as channelDown
+        case .num9:         return "AAAAAQAAAAEAAAASAw=="  // same wire code as volumeUp
+        case .input:        return "AAAAAQAAAAEAAAAlAw=="
+        }
+    }
+
+    // MARK: - Identifiable
+
+    var id: String { displayName }
+
+    // MARK: - Display
 
     var displayName: String {
         switch self {
@@ -98,7 +143,6 @@ enum IRCCCommand: String, CaseIterable, Identifiable {
         case .down:        return "chevron.down"
         case .left:        return "chevron.left"
         case .right:       return "chevron.right"
-        case .confirm:     return nil
         case .home:        return "house.fill"
         case .back:        return "arrow.uturn.left"
         case .options:     return "ellipsis"
