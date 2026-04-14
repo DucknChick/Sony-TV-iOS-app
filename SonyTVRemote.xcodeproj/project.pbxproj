@@ -36,6 +36,7 @@
 		AA000127 /* ChannelControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000027 /* ChannelControlsView.swift */; };
 		AA000128 /* NavigationButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000028 /* NavigationButtonsView.swift */; };
 		AA000129 /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000029 /* Data+HexString.swift */; };
+		AA000132 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000032 /* Color+Theme.swift */; };
 		AA000130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000030 /* Assets.xcassets */; };
 		AA000131 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA000031 /* Info.plist */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		AA000027 /* ChannelControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelControlsView.swift; sourceTree = "<group>"; };
 		AA000028 /* NavigationButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonsView.swift; sourceTree = "<group>"; };
 		AA000029 /* Data+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
+		AA000032 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		AA000030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA000031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA000099 /* SonyTVRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyTVRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				AA000029 /* Data+HexString.swift */,
+				AA000032 /* Color+Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				AA000127 /* ChannelControlsView.swift in Sources */,
 				AA000128 /* NavigationButtonsView.swift in Sources */,
 				AA000129 /* Data+HexString.swift in Sources */,
+				AA000132 /* Color+Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
