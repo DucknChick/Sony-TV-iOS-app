@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA000101 /* SonyTVRemoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001 /* SonyTVRemoteApp.swift */; };
+		AA000102 /* SonyTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002 /* SonyTV.swift */; };
+		AA000103 /* IRCCCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003 /* IRCCCommand.swift */; };
+		AA000104 /* TVService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000004 /* TVService.swift */; };
+		AA000105 /* PairingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000005 /* PairingState.swift */; };
+		AA000106 /* SSDPDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006 /* SSDPDiscovery.swift */; };
+		AA000107 /* IRCCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007 /* IRCCClient.swift */; };
+		AA000108 /* SonyRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008 /* SonyRESTClient.swift */; };
+		AA000109 /* WakeOnLANClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000009 /* WakeOnLANClient.swift */; };
+		AA000110 /* TVDiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000010 /* TVDiscoveryService.swift */; };
+		AA000111 /* TVPairingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000011 /* TVPairingService.swift */; };
+		AA000112 /* TVCommandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000012 /* TVCommandService.swift */; };
+		AA000113 /* TVPersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000013 /* TVPersistenceService.swift */; };
+		AA000114 /* TVListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000014 /* TVListViewModel.swift */; };
+		AA000115 /* PairingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000015 /* PairingViewModel.swift */; };
+		AA000116 /* RemoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000016 /* RemoteViewModel.swift */; };
+		AA000117 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000017 /* RootView.swift */; };
+		AA000118 /* TVListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000018 /* TVListView.swift */; };
+		AA000119 /* TVListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000019 /* TVListRowView.swift */; };
+		AA000120 /* PairingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000020 /* PairingView.swift */; };
+		AA000121 /* RemoteControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000021 /* RemoteControlView.swift */; };
+		AA000122 /* RemoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000022 /* RemoteButton.swift */; };
+		AA000123 /* DPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000023 /* DPadView.swift */; };
+		AA000124 /* NumPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000024 /* NumPadView.swift */; };
+		AA000125 /* MediaControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000025 /* MediaControlsView.swift */; };
+		AA000126 /* VolumeControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000026 /* VolumeControlsView.swift */; };
+		AA000127 /* ChannelControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000027 /* ChannelControlsView.swift */; };
+		AA000128 /* NavigationButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000028 /* NavigationButtonsView.swift */; };
+		AA000129 /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000029 /* Data+HexString.swift */; };
+		AA000130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000030 /* Assets.xcassets */; };
+		AA000131 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA000031 /* Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA000001 /* SonyTVRemoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonyTVRemoteApp.swift; sourceTree = "<group>"; };
+		AA000002 /* SonyTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonyTV.swift; sourceTree = "<group>"; };
+		AA000003 /* IRCCCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCCCommand.swift; sourceTree = "<group>"; };
+		AA000004 /* TVService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVService.swift; sourceTree = "<group>"; };
+		AA000005 /* PairingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingState.swift; sourceTree = "<group>"; };
+		AA000006 /* SSDPDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDPDiscovery.swift; sourceTree = "<group>"; };
+		AA000007 /* IRCCClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCCClient.swift; sourceTree = "<group>"; };
+		AA000008 /* SonyRESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonyRESTClient.swift; sourceTree = "<group>"; };
+		AA000009 /* WakeOnLANClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WakeOnLANClient.swift; sourceTree = "<group>"; };
+		AA000010 /* TVDiscoveryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVDiscoveryService.swift; sourceTree = "<group>"; };
+		AA000011 /* TVPairingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVPairingService.swift; sourceTree = "<group>"; };
+		AA000012 /* TVCommandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCommandService.swift; sourceTree = "<group>"; };
+		AA000013 /* TVPersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVPersistenceService.swift; sourceTree = "<group>"; };
+		AA000014 /* TVListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVListViewModel.swift; sourceTree = "<group>"; };
+		AA000015 /* PairingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingViewModel.swift; sourceTree = "<group>"; };
+		AA000016 /* RemoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteViewModel.swift; sourceTree = "<group>"; };
+		AA000017 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		AA000018 /* TVListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVListView.swift; sourceTree = "<group>"; };
+		AA000019 /* TVListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVListRowView.swift; sourceTree = "<group>"; };
+		AA000020 /* PairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingView.swift; sourceTree = "<group>"; };
+		AA000021 /* RemoteControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteControlView.swift; sourceTree = "<group>"; };
+		AA000022 /* RemoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteButton.swift; sourceTree = "<group>"; };
+		AA000023 /* DPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPadView.swift; sourceTree = "<group>"; };
+		AA000024 /* NumPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumPadView.swift; sourceTree = "<group>"; };
+		AA000025 /* MediaControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaControlsView.swift; sourceTree = "<group>"; };
+		AA000026 /* VolumeControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControlsView.swift; sourceTree = "<group>"; };
+		AA000027 /* ChannelControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelControlsView.swift; sourceTree = "<group>"; };
+		AA000028 /* NavigationButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButtonsView.swift; sourceTree = "<group>"; };
+		AA000029 /* Data+HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+HexString.swift"; sourceTree = "<group>"; };
+		AA000030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA000031 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA000099 /* SonyTVRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonyTVRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		AA00F000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA000099 /* SonyTVRemote.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA00G000 /* SonyTVRemote */ = {
+			isa = PBXGroup;
+			children = (
+				AA000001 /* SonyTVRemoteApp.swift */,
+				AA000031 /* Info.plist */,
+				AA000030 /* Assets.xcassets */,
+				AA00G010 /* Models */,
+				AA00G020 /* Network */,
+				AA00G030 /* Services */,
+				AA00G040 /* ViewModels */,
+				AA00G050 /* Views */,
+				AA00G070 /* Extensions */,
+			);
+			path = SonyTVRemote;
+			sourceTree = "<group>";
+		};
+		AA00G010 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA000002 /* SonyTV.swift */,
+				AA000003 /* IRCCCommand.swift */,
+				AA000004 /* TVService.swift */,
+				AA000005 /* PairingState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA00G020 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				AA000006 /* SSDPDiscovery.swift */,
+				AA000007 /* IRCCClient.swift */,
+				AA000008 /* SonyRESTClient.swift */,
+				AA000009 /* WakeOnLANClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		AA00G030 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AA000010 /* TVDiscoveryService.swift */,
+				AA000011 /* TVPairingService.swift */,
+				AA000012 /* TVCommandService.swift */,
+				AA000013 /* TVPersistenceService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AA00G040 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AA000014 /* TVListViewModel.swift */,
+				AA000015 /* PairingViewModel.swift */,
+				AA000016 /* RemoteViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		AA00G050 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA000017 /* RootView.swift */,
+				AA000018 /* TVListView.swift */,
+				AA000019 /* TVListRowView.swift */,
+				AA000020 /* PairingView.swift */,
+				AA000021 /* RemoteControlView.swift */,
+				AA00G060 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA00G060 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				AA000022 /* RemoteButton.swift */,
+				AA000023 /* DPadView.swift */,
+				AA000024 /* NumPadView.swift */,
+				AA000025 /* MediaControlsView.swift */,
+				AA000026 /* VolumeControlsView.swift */,
+				AA000027 /* ChannelControlsView.swift */,
+				AA000028 /* NavigationButtonsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AA00G070 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA000029 /* Data+HexString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA00ROOT /* root */ = {
+			isa = PBXGroup;
+			children = (
+				AA00G000 /* SonyTVRemote */,
+				AA00F000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA00T000 /* SonyTVRemote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA00C010 /* Build configuration list for PBXNativeTarget "SonyTVRemote" */;
+			buildPhases = (
+				AA00P000 /* Sources */,
+				AA00P001 /* Resources */,
+				AA00P002 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SonyTVRemote;
+			productName = SonyTVRemote;
+			productReference = AA000099 /* SonyTVRemote.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA00PROJ /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA00T000 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AA00C000 /* Build configuration list for PBXProject "SonyTVRemote" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA00ROOT;
+			productRefGroup = AA00F000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA00T000 /* SonyTVRemote */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA00P001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000130 /* Assets.xcassets in Resources */,
+				AA000131 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA00P000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA000101 /* SonyTVRemoteApp.swift in Sources */,
+				AA000102 /* SonyTV.swift in Sources */,
+				AA000103 /* IRCCCommand.swift in Sources */,
+				AA000104 /* TVService.swift in Sources */,
+				AA000105 /* PairingState.swift in Sources */,
+				AA000106 /* SSDPDiscovery.swift in Sources */,
+				AA000107 /* IRCCClient.swift in Sources */,
+				AA000108 /* SonyRESTClient.swift in Sources */,
+				AA000109 /* WakeOnLANClient.swift in Sources */,
+				AA000110 /* TVDiscoveryService.swift in Sources */,
+				AA000111 /* TVPairingService.swift in Sources */,
+				AA000112 /* TVCommandService.swift in Sources */,
+				AA000113 /* TVPersistenceService.swift in Sources */,
+				AA000114 /* TVListViewModel.swift in Sources */,
+				AA000115 /* PairingViewModel.swift in Sources */,
+				AA000116 /* RemoteViewModel.swift in Sources */,
+				AA000117 /* RootView.swift in Sources */,
+				AA000118 /* TVListView.swift in Sources */,
+				AA000119 /* TVListRowView.swift in Sources */,
+				AA000120 /* PairingView.swift in Sources */,
+				AA000121 /* RemoteControlView.swift in Sources */,
+				AA000122 /* RemoteButton.swift in Sources */,
+				AA000123 /* DPadView.swift in Sources */,
+				AA000124 /* NumPadView.swift in Sources */,
+				AA000125 /* MediaControlsView.swift in Sources */,
+				AA000126 /* VolumeControlsView.swift in Sources */,
+				AA000127 /* ChannelControlsView.swift in Sources */,
+				AA000128 /* NavigationButtonsView.swift in Sources */,
+				AA000129 /* Data+HexString.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA00P002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA00B000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA00B001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA00B010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SonyTVRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonytvremote.SonyTVRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA00B011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SonyTVRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonytvremote.SonyTVRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA00C000 /* Build configuration list for PBXProject "SonyTVRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00B000 /* Debug */,
+				AA00B001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA00C010 /* Build configuration list for PBXNativeTarget "SonyTVRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA00B010 /* Debug */,
+				AA00B011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = AA00PROJ /* Project object */;
+}
