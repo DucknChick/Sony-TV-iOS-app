@@ -23,6 +23,9 @@ final class RemoteViewModel: ObservableObject {
                 try await commandService.send(command, to: tv)
             } catch IRCCError.notAuthorized {
                 lastError = "Not authorized. Please re-pair with your TV."
+            } catch IRCCError.commandFailed {
+                // HTTP 500 means the command isn't applicable in the current TV context
+                // (e.g. CH+ while in a streaming app). This is normal — silently ignore.
             } catch {
                 lastError = error.localizedDescription
             }
@@ -33,6 +36,8 @@ final class RemoteViewModel: ObservableObject {
         Task {
             do {
                 try await commandService.powerOn(tv: tv)
+            } catch IRCCError.commandFailed {
+                // Silently ignore — TV may already be on or transitioning
             } catch {
                 lastError = error.localizedDescription
             }
@@ -43,6 +48,8 @@ final class RemoteViewModel: ObservableObject {
         Task {
             do {
                 try await commandService.powerOff(tv: tv)
+            } catch IRCCError.commandFailed {
+                // Silently ignore — TV may already be off or transitioning
             } catch {
                 lastError = error.localizedDescription
             }
