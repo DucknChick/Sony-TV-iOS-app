@@ -74,11 +74,11 @@ struct RemoteControlView: View {
 
             // Wake / Power On
             Button { viewModel.powerOn() } label: {
-                Image(systemName: "wake.display")
-                    .font(.system(size: 14, weight: .medium))
+                Image(systemName: "power.circle.fill")
+                    .font(.system(size: 16, weight: .medium))
                     .frame(width: 36, height: 36)
-                    .foregroundColor(.orange)
-                    .background(Color.orange.opacity(0.15))
+                    .foregroundColor(.green)
+                    .background(Color.green.opacity(0.15))
                     .clipShape(Circle())
             }
             .pressScale()
