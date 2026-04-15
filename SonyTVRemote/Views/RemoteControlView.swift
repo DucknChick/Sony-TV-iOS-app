@@ -148,7 +148,6 @@ struct RemoteControlView: View {
             // Channel column (right)
             VStack(spacing: 8) {
                 sideChip("CH +", "chevron.up",   Color.tvSecondary) { viewModel.tap(.channelUp) }
-                Spacer()
                 sideChip("CH −", "chevron.down", Color.tvSecondary) { viewModel.tap(.channelDown) }
             }
             .frame(width: 62)
