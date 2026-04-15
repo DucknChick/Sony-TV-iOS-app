@@ -100,7 +100,7 @@ struct RemoteControlView: View {
 
     private var navRow: some View {
         HStack(spacing: 8) {
-            navChip("house.fill",       "Home",    .green)        { viewModel.tap(.home) }
+            navChip("house.fill",       "Home",    Color.tvSecondary) { viewModel.tap(.home) }
             navChip("arrow.uturn.left", "Back",    Color.tvSecondary) { viewModel.tap(.back) }
             navChip("list.bullet",      "Menu",    Color.tvSecondary) { viewModel.tap(.menu) }
             navChip("ellipsis",         "Options", Color.tvSecondary) { viewModel.tap(.options) }
@@ -169,7 +169,7 @@ struct RemoteControlView: View {
             }
             .foregroundColor(tint)
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
+            .frame(height: 66)
             .background(Color.tvBtn)
             .cornerRadius(12)
             .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.tvBorder, lineWidth: 0.5))
@@ -211,12 +211,13 @@ struct RemoteControlView: View {
         HStack(spacing: 10) {
             Button { showNumPad = true } label: {
                 Label("123  Keys", systemImage: "number")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(Color.tvSecondary)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
-                    .background(Color.accentColor)
+                    .background(Color.tvBtn)
                     .cornerRadius(13)
+                    .overlay(RoundedRectangle(cornerRadius: 13).stroke(Color.tvBorder, lineWidth: 0.5))
             }
             .pressScale()
 
