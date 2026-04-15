@@ -322,11 +322,20 @@ private struct InputPickerSheet: View {
         NavigationStack {
             Group {
                 if inputs.isEmpty {
-                    ContentUnavailableView(
-                        "No Inputs Found",
-                        systemImage: "rectangle.connected.to.line.below",
-                        description: Text("Could not retrieve input list from TV.")
-                    )
+                    VStack(spacing: 16) {
+                        Spacer()
+                        Image(systemName: "rectangle.connected.to.line.below")
+                            .font(.system(size: 48))
+                            .foregroundColor(.secondary)
+                        Text("No Inputs Found")
+                            .font(.headline)
+                        Text("Could not retrieve input list from TV.")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                        Spacer()
+                    }
+                    .padding()
                 } else {
                     List(inputs) { input in
                         Button {
