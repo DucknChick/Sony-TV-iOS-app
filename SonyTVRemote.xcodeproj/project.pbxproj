@@ -38,7 +38,6 @@
 		AA000129 /* Data+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000029 /* Data+HexString.swift */; };
 		AA000132 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000032 /* Color+Theme.swift */; };
 		AA000130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000030 /* Assets.xcassets */; };
-		AA000131 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA000031 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -248,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA000130 /* Assets.xcassets in Resources */,
-				AA000131 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
