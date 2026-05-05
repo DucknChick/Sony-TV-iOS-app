@@ -1,0 +1,29 @@
+# Xcode
+build/
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# Swift Package Manager
+.swiftpm/
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# CocoaPods / Carthage (not used, but ignore if added later)
+Pods/
+Carthage/Build/
+
+# macOS
+.DS_Store
+
+# Editor / OS noise
+*.swp
+*~
+.idea/
+.vscode/
