@@ -8,7 +8,17 @@ extension Decimal {
     }
 
     var compactCurrencyUSD: String {
-        formatted(.currency(code: "USD").notation(.compactName))
+        let abs = self < 0 ? -self : self
+        let (divisor, suffix): (Decimal, String)
+        switch abs {
+        case 1_000_000_000...: (divisor, suffix) = (1_000_000_000, "B")
+        case 1_000_000...:     (divisor, suffix) = (1_000_000, "M")
+        case 1_000...:         (divisor, suffix) = (1_000, "K")
+        default:               return formatted(.currency(code: "USD").precision(.fractionLength(0)))
+        }
+        let value = (self / divisor)
+        let numStr = value.formatted(.number.precision(.fractionLength(1)))
+        return "$\(numStr)\(suffix)"
     }
 
     var signedCurrencyUSD: String {
