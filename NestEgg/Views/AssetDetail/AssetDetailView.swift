@@ -91,6 +91,7 @@ struct AssetDetailView: View {
             titleVisibility: .visible
         ) {
             Button("Delete", role: .destructive) {
+                Haptics.warning()
                 PersistenceController.deleteAsset(asset, in: context)
                 dismiss()
             }

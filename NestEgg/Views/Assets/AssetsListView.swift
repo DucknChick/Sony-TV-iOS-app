@@ -6,7 +6,16 @@ struct AssetsListView: View {
     @Query(sort: [SortDescriptor(\Asset.name)]) private var assets: [Asset]
     @Query(sort: [SortDescriptor(\Category.sortOrder)]) private var categories: [Category]
 
+    @AppStorage("dashboard.ownerScope") private var ownerScopeRaw: String = OwnerScope.all.rawValue
     @State private var showingNewAsset = false
+
+    private var scope: OwnerScope {
+        OwnerScope(rawValue: ownerScopeRaw) ?? .all
+    }
+
+    private var scopedAssets: [Asset] {
+        scope.filter(assets)
+    }
 
     var body: some View {
         Group {
@@ -17,6 +26,12 @@ struct AssetsListView: View {
                     message: "Track investments, cash, real estate, and more.",
                     actionTitle: "Add asset"
                 ) { showingNewAsset = true }
+            } else if scopedAssets.isEmpty {
+                EmptyStateView(
+                    systemImage: "person.2",
+                    title: "No \(scope.displayName.lowercased()) assets",
+                    message: "Switch the scope above or add an asset assigned to \(scope.displayName)."
+                )
             } else {
                 List {
                     ForEach(assetCategories) { cat in
@@ -32,6 +47,7 @@ struct AssetsListView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
+                    Haptics.tap()
                     showingNewAsset = true
                 } label: {
                     Image(systemName: "plus")
@@ -54,11 +70,11 @@ struct AssetsListView: View {
     }
 
     private func hasAssets(in category: Category) -> Bool {
-        assets.contains { $0.category?.name == category.name && !$0.isArchived }
+        scopedAssets.contains { $0.category?.name == category.name && !$0.isArchived }
     }
 
     private func assetsIn(_ category: Category) -> [Asset] {
-        assets.filter { $0.category?.name == category.name && !$0.isArchived }
+        scopedAssets.filter { $0.category?.name == category.name && !$0.isArchived }
     }
 
     @ViewBuilder
