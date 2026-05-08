@@ -6,13 +6,16 @@ struct AssetRow: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(asset.name)
                     .font(.body)
-                if let inst = asset.institution, !inst.isEmpty {
-                    Text(inst)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    OwnerChip(owner: asset.owner)
+                    if let inst = asset.institution, !inst.isEmpty {
+                        Text(inst)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
             Spacer()
@@ -38,5 +41,19 @@ struct AssetRow: View {
         let delta = now - prev
         let pctBase = prev < 0 ? -prev : prev
         return NetWorthAggregator.Delta(absolute: delta, percent: delta / pctBase)
+    }
+}
+
+struct OwnerChip: View {
+    let owner: Owner
+
+    var body: some View {
+        Text(owner.displayName)
+            .font(.caption2.weight(.medium))
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
+            .background(Color.accentColor.opacity(0.15))
+            .foregroundStyle(Color.accentColor)
+            .clipShape(Capsule())
     }
 }

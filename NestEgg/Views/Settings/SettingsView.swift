@@ -5,15 +5,34 @@ struct SettingsView: View {
     @Environment(\.modelContext) private var context
     @Environment(BiometricGate.self) private var gate
 
+    @AppStorage("reminders.enabled") private var remindersEnabled = false
+
     @State private var exportDocument: BackupDocument?
     @State private var isExporting = false
     @State private var exportError: String?
+    @State private var notificationsDenied = false
 
     var body: some View {
         @Bindable var gate = gate
         List {
             Section("Privacy") {
                 Toggle("Lock with Face ID / passcode", isOn: $gate.isEnabled)
+            }
+
+            Section {
+                Toggle("Monthly update reminder", isOn: reminderBinding)
+                if notificationsDenied {
+                    Label(
+                        "Notifications are disabled. Enable them in Settings → NestEgg.",
+                        systemImage: "bell.slash"
+                    )
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                }
+            } header: {
+                Text("Notifications")
+            } footer: {
+                Text("We'll send a friendly nudge on the 1st of each month at 9am.")
             }
 
             Section("Data") {
@@ -23,7 +42,14 @@ struct SettingsView: View {
                     Label("Manage categories", systemImage: "folder")
                 }
 
+                NavigationLink {
+                    RestoreView()
+                } label: {
+                    Label("Restore from backup…", systemImage: "square.and.arrow.down")
+                }
+
                 Button {
+                    Haptics.tap()
                     prepareExport()
                 } label: {
                     Label("Export data (JSON)", systemImage: "square.and.arrow.up")
@@ -49,6 +75,14 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
+        .task {
+            let status = await ReminderService.currentAuthorizationStatus()
+            notificationsDenied = (status == .denied) && remindersEnabled
+            if status == .denied && remindersEnabled {
+                remindersEnabled = false
+                ReminderService.setMonthlyReminder(enabled: false)
+            }
+        }
         .fileExporter(
             isPresented: $isExporting,
             document: exportDocument,
@@ -64,6 +98,36 @@ struct SettingsView: View {
         } message: {
             Text(exportError ?? "")
         }
+    }
+
+    private var reminderBinding: Binding<Bool> {
+        Binding(
+            get: { remindersEnabled },
+            set: { newValue in
+                if newValue {
+                    Task {
+                        let granted = await ReminderService.requestAuthorization()
+                        await MainActor.run {
+                            if granted {
+                                remindersEnabled = true
+                                notificationsDenied = false
+                                ReminderService.setMonthlyReminder(enabled: true)
+                                Haptics.success()
+                            } else {
+                                remindersEnabled = false
+                                notificationsDenied = true
+                                Haptics.warning()
+                            }
+                        }
+                    }
+                } else {
+                    remindersEnabled = false
+                    notificationsDenied = false
+                    ReminderService.setMonthlyReminder(enabled: false)
+                    Haptics.tap()
+                }
+            }
+        )
     }
 
     private var versionString: String {

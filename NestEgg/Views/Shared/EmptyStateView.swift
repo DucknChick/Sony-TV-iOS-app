@@ -8,24 +8,34 @@ struct EmptyStateView: View {
     var action: (() -> Void)? = nil
 
     var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: systemImage)
-                .font(.system(size: 44))
-                .foregroundStyle(.secondary)
-            Text(title)
-                .font(.title3)
-                .fontWeight(.semibold)
-            Text(message)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+        VStack(spacing: 18) {
+            ZStack {
+                Circle()
+                    .fill(Color.accentColor.opacity(0.12))
+                    .frame(width: 88, height: 88)
+                Image(systemName: systemImage)
+                    .font(.system(size: 36, weight: .regular))
+                    .foregroundStyle(Color.accentColor)
+            }
+            VStack(spacing: 8) {
+                Text(title)
+                    .font(.title3.weight(.semibold))
+                Text(message)
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 24)
+            }
             if let actionTitle, let action {
-                Button(actionTitle, action: action)
-                    .buttonStyle(.borderedProminent)
-                    .padding(.top, 4)
+                Button(actionTitle) {
+                    Haptics.tap()
+                    action()
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.top, 4)
             }
         }
-        .padding()
+        .padding(32)
         .frame(maxWidth: .infinity)
     }
 }
