@@ -37,7 +37,7 @@ struct LockGateView<Content: View>: View {
                 }
                 VStack(spacing: 6) {
                     Text("NestEgg")
-                        .font(.system(.largeTitle, design: .serif).weight(.semibold))
+                        .font(.largeTitle.weight(.semibold))
                     Text(failureMessage ?? "Locked")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)

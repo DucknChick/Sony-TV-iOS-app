@@ -79,7 +79,7 @@ struct DashboardView: View {
         return VStack(alignment: .leading, spacing: 10) {
             SectionLabel(text: "Net Worth")
             Text(nw.currencyUSD)
-                .font(.system(size: 48, weight: .bold, design: .rounded))
+                .font(.system(size: 48, weight: .bold))
                 .monospacedDigit()
                 .contentTransition(.numericText())
                 .lineLimit(1)
