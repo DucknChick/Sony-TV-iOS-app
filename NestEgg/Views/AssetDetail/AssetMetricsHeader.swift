@@ -9,7 +9,7 @@ struct AssetMetricsHeader: View {
                 VStack(alignment: .leading, spacing: 4) {
                     SectionLabel(text: viewModel.asset.isLiability ? "Outstanding Balance" : "Current Value")
                     Text(viewModel.currentValue.currencyUSD)
-                        .font(.system(.largeTitle, design: .rounded).weight(.bold))
+                        .font(.largeTitle.weight(.bold))
                         .monospacedDigit()
                         .contentTransition(.numericText())
                 }

@@ -23,9 +23,7 @@ struct SectionLabel: View {
 
     var body: some View {
         Text(text)
-            .font(.system(.subheadline, design: .serif))
+            .font(.subheadline)
             .foregroundStyle(.secondary)
-            .textCase(.uppercase)
-            .tracking(1.2)
     }
 }
