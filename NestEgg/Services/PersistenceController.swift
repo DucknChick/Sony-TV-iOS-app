@@ -58,4 +58,55 @@ enum PersistenceController {
         try? context.save()
         SeedService.seedIfNeeded(in: context, force: true)
     }
+
+    /// Wipes all data and replaces it with the contents of a decoded backup.
+    /// Inserts categories first so asset relationships can resolve by name.
+    static func replaceAllData(with backup: BackupV1, in context: ModelContext) throws {
+        try? context.delete(model: Valuation.self)
+        try? context.delete(model: Asset.self)
+        try? context.delete(model: Category.self)
+        try context.save()
+
+        var categoriesByName: [String: Category] = [:]
+        for dto in backup.categories {
+            let category = Category(
+                name: dto.name,
+                isLiability: dto.isLiability,
+                sortOrder: dto.sortOrder,
+                isBuiltIn: dto.isBuiltIn,
+                tracksCostBasis: dto.tracksCostBasis,
+                colorHex: dto.colorHex
+            )
+            context.insert(category)
+            categoriesByName[dto.name] = category
+        }
+
+        for dto in backup.assets {
+            let category = dto.categoryName.flatMap { categoriesByName[$0] }
+            let owner = Owner(rawValue: dto.owner) ?? .joint
+            let asset = Asset(
+                name: dto.name,
+                category: category,
+                institution: dto.institution,
+                notes: dto.notes,
+                purchaseDate: dto.purchaseDate,
+                costBasis: dto.costBasis.flatMap { Decimal(string: $0) },
+                owner: owner
+            )
+            asset.id = dto.id
+            asset.createdAt = dto.createdAt
+            asset.archivedAt = dto.archivedAt
+            context.insert(asset)
+
+            for vDto in dto.valuations {
+                guard let amount = Decimal(string: vDto.amount) else { continue }
+                let valuation = Valuation(monthKey: vDto.monthKey, amount: amount, asset: asset)
+                valuation.id = vDto.id
+                valuation.recordedAt = vDto.recordedAt
+                context.insert(valuation)
+            }
+        }
+
+        try context.save()
+    }
 }

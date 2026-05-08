@@ -162,6 +162,7 @@ struct AssetFormView: View {
             asset.costBasis = costBasis
             try? context.save()
         }
+        Haptics.success()
         dismiss()
     }
 }

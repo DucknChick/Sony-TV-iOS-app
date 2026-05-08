@@ -47,6 +47,13 @@
 		NE000138 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000038 /* SettingsView.swift */; };
 		NE000139 /* ManageCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000039 /* ManageCategoriesView.swift */; };
 		NE000140 /* ResetDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000040 /* ResetDataView.swift */; };
+		NE000141 /* OwnerScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000041 /* OwnerScope.swift */; };
+		NE000142 /* BackupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000042 /* BackupModels.swift */; };
+		NE000143 /* ImportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000043 /* ImportService.swift */; };
+		NE000144 /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000044 /* ReminderService.swift */; };
+		NE000145 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000045 /* Haptics.swift */; };
+		NE000146 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000046 /* CardModifier.swift */; };
+		NE000147 /* RestoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = NE000047 /* RestoreView.swift */; };
 		NE000150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = NE000050 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +98,13 @@
 		NE000038 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		NE000039 /* ManageCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCategoriesView.swift; sourceTree = "<group>"; };
 		NE000040 /* ResetDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetDataView.swift; sourceTree = "<group>"; };
+		NE000041 /* OwnerScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerScope.swift; sourceTree = "<group>"; };
+		NE000042 /* BackupModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupModels.swift; sourceTree = "<group>"; };
+		NE000043 /* ImportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportService.swift; sourceTree = "<group>"; };
+		NE000044 /* ReminderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
+		NE000045 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		NE000046 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
+		NE000047 /* RestoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreView.swift; sourceTree = "<group>"; };
 		NE000050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		NE000051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		NE000099 /* NestEgg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestEgg.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +165,7 @@
 				NE000012 /* ReturnsCalculator.swift */,
 				NE000013 /* MonthSeries.swift */,
 				NE000014 /* NetWorthAggregator.swift */,
+				NE000041 /* OwnerScope.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -162,6 +177,10 @@
 				NE000016 /* SeedService.swift */,
 				NE000017 /* BiometricGate.swift */,
 				NE000018 /* ExportService.swift */,
+				NE000042 /* BackupModels.swift */,
+				NE000043 /* ImportService.swift */,
+				NE000044 /* ReminderService.swift */,
+				NE000045 /* Haptics.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -197,6 +216,7 @@
 				NE000024 /* DeltaBadge.swift */,
 				NE000025 /* MonthPickerView.swift */,
 				NE000026 /* EmptyStateView.swift */,
+				NE000046 /* CardModifier.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -246,6 +266,7 @@
 				NE000038 /* SettingsView.swift */,
 				NE000039 /* ManageCategoriesView.swift */,
 				NE000040 /* ResetDataView.swift */,
+				NE000047 /* RestoreView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -367,6 +388,13 @@
 				NE000138 /* SettingsView.swift in Sources */,
 				NE000139 /* ManageCategoriesView.swift in Sources */,
 				NE000140 /* ResetDataView.swift in Sources */,
+				NE000141 /* OwnerScope.swift in Sources */,
+				NE000142 /* BackupModels.swift in Sources */,
+				NE000143 /* ImportService.swift in Sources */,
+				NE000144 /* ReminderService.swift in Sources */,
+				NE000145 /* Haptics.swift in Sources */,
+				NE000146 /* CardModifier.swift in Sources */,
+				NE000147 /* RestoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

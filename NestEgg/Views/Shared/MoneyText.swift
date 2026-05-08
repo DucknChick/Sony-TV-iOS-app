@@ -4,10 +4,15 @@ struct MoneyText: View {
     let amount: Decimal
     var compact: Bool = false
     var signed: Bool = false
+    var animated: Bool = false
 
     var body: some View {
-        Text(formatted)
-            .monospacedDigit()
+        let text = Text(formatted).monospacedDigit()
+        if animated {
+            text.contentTransition(.numericText())
+        } else {
+            text
+        }
     }
 
     private var formatted: String {

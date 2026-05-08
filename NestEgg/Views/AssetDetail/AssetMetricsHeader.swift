@@ -6,13 +6,12 @@ struct AssetMetricsHeader: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .firstTextBaseline) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(viewModel.asset.isLiability ? "Outstanding Balance" : "Current Value")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                VStack(alignment: .leading, spacing: 4) {
+                    SectionLabel(text: viewModel.asset.isLiability ? "Outstanding Balance" : "Current Value")
                     Text(viewModel.currentValue.currencyUSD)
-                        .font(.title.weight(.bold))
+                        .font(.system(.largeTitle, design: .rounded).weight(.bold))
                         .monospacedDigit()
+                        .contentTransition(.numericText())
                 }
                 Spacer()
             }

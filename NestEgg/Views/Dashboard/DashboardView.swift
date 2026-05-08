@@ -5,8 +5,28 @@ struct DashboardView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: [SortDescriptor(\Asset.createdAt)]) private var assets: [Asset]
 
+    @AppStorage("dashboard.ownerScope") private var ownerScopeRaw: String = OwnerScope.all.rawValue
+
     @State private var viewModel = DashboardViewModel()
     @State private var staleAssetForUpdate: Asset?
+
+    private var scope: OwnerScope {
+        OwnerScope(rawValue: ownerScopeRaw) ?? .all
+    }
+
+    private var scopeBinding: Binding<OwnerScope> {
+        Binding(
+            get: { scope },
+            set: { newValue in
+                ownerScopeRaw = newValue.rawValue
+                Haptics.tap()
+            }
+        )
+    }
+
+    private var filteredAssets: [Asset] {
+        scope.filter(assets)
+    }
 
     var body: some View {
         Group {
@@ -20,6 +40,7 @@ struct DashboardView: View {
                 content
             }
         }
+        .background(Color("AppBackground").ignoresSafeArea())
         .navigationTitle("Dashboard")
         .sheet(item: $staleAssetForUpdate) { asset in
             NavigationStack {
@@ -31,26 +52,36 @@ struct DashboardView: View {
     private var content: some View {
         ScrollView {
             VStack(spacing: 20) {
+                scopePicker
                 heroSection
                 breakdownSection
                 staleSection
             }
             .padding()
+            .animation(.spring(duration: 0.4), value: scope)
         }
     }
 
-    private var heroSection: some View {
-        let nw = viewModel.netWorth(for: assets)
-        let delta = viewModel.momDelta(for: assets)
-        let series = viewModel.sparklineSeries(for: assets)
+    private var scopePicker: some View {
+        Picker("Owner", selection: scopeBinding) {
+            ForEach(OwnerScope.allCases) { s in
+                Text(s.displayName).tag(s)
+            }
+        }
+        .pickerStyle(.segmented)
+    }
 
-        return VStack(alignment: .leading, spacing: 8) {
-            Text("Net Worth")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+    private var heroSection: some View {
+        let nw = viewModel.netWorth(for: filteredAssets)
+        let delta = viewModel.momDelta(for: filteredAssets)
+        let series = viewModel.sparklineSeries(for: filteredAssets)
+
+        return VStack(alignment: .leading, spacing: 10) {
+            SectionLabel(text: "Net Worth")
             Text(nw.currencyUSD)
-                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .font(.system(size: 48, weight: .bold, design: .rounded))
                 .monospacedDigit()
+                .contentTransition(.numericText())
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
             HStack(spacing: 8) {
@@ -64,16 +95,14 @@ struct DashboardView: View {
                     .padding(.top, 4)
             }
             HStack {
-                summaryStat("Assets", value: viewModel.totalAssets(for: assets))
+                summaryStat("Assets", value: viewModel.totalAssets(for: filteredAssets))
                 Divider().frame(height: 32)
-                summaryStat("Liabilities", value: viewModel.totalLiabilities(for: assets))
+                summaryStat("Liabilities", value: viewModel.totalLiabilities(for: filteredAssets))
             }
             .padding(.top, 4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .cardStyle()
     }
 
     private func summaryStat(_ label: String, value: Decimal) -> some View {
@@ -84,34 +113,30 @@ struct DashboardView: View {
             Text(value.compactCurrencyUSD)
                 .font(.subheadline.weight(.semibold))
                 .monospacedDigit()
+                .contentTransition(.numericText())
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     private var breakdownSection: some View {
         VStack(spacing: 16) {
-            CategoryDonutView(title: "Assets by Category", breakdown: viewModel.assetBreakdown(for: assets))
-                .padding()
-                .background(Color(.secondarySystemBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            CategoryDonutView(title: "Assets by Category", breakdown: viewModel.assetBreakdown(for: filteredAssets))
+                .cardStyle()
 
-            let liabilities = viewModel.liabilityBreakdown(for: assets)
+            let liabilities = viewModel.liabilityBreakdown(for: filteredAssets)
             if !liabilities.isEmpty {
                 CategoryDonutView(title: "Liabilities by Category", breakdown: liabilities)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .cardStyle()
             }
         }
     }
 
     @ViewBuilder
     private var staleSection: some View {
-        let stale = viewModel.staleAssets(assets)
+        let stale = viewModel.staleAssets(filteredAssets)
         if !stale.isEmpty {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Needs an update for \(viewModel.month.shortLabel)")
-                    .font(.headline)
+            VStack(alignment: .leading, spacing: 12) {
+                SectionLabel(text: "Needs an update for \(viewModel.month.shortLabel)")
                 ForEach(Array(stale.enumerated()), id: \.element.id) { idx, asset in
                     StaleAssetRow(asset: asset) {
                         staleAssetForUpdate = asset
@@ -122,9 +147,8 @@ struct DashboardView: View {
                     }
                 }
             }
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .cardStyle()
         }
     }
 }

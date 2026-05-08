@@ -55,6 +55,7 @@ struct ValuationFormView: View {
             if let editing {
                 Section {
                     Button("Delete value", role: .destructive) {
+                        Haptics.warning()
                         PersistenceController.deleteValuation(editing, in: context)
                         dismiss()
                     }
@@ -98,6 +99,7 @@ struct ValuationFormView: View {
                 in: context
             )
         }
+        Haptics.success()
         dismiss()
     }
 }

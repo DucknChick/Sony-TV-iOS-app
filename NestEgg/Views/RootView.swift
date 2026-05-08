@@ -13,5 +13,6 @@ struct RootView: View {
             NavigationStack { SettingsView() }
                 .tabItem { Label("Settings", systemImage: "gearshape") }
         }
+        .tint(Color.accentColor)
     }
 }
