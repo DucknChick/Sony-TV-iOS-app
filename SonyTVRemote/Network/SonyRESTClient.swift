@@ -85,7 +85,7 @@ final class SonyRESTClient {
         tv: SonyTV,
         id: Int = 1
     ) async throws -> [Any] {
-        let url = tv.baseURL.appendingPathComponent(service.path.dropFirst(), isDirectory: false)
+        let url = tv.baseURL.appendingPathComponent(String(service.path.dropFirst()), isDirectory: false)
 
         let rpc = RPCRequest(
             method: method,
