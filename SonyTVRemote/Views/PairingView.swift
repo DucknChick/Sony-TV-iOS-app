@@ -83,7 +83,7 @@ struct PairingView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarHidden(true)
+            .toolbar(.hidden, for: .navigationBar)
         }
         .task {
             await viewModel.startPairing()

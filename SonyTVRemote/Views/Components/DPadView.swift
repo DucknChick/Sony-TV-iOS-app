@@ -60,7 +60,7 @@ private struct DPadPressStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.88 : 1.0)
             .opacity(configuration.isPressed ? 0.75 : 1.0)
             .animation(.easeInOut(duration: 0.08), value: configuration.isPressed)
-            .onChange(of: configuration.isPressed) { pressed in
+            .onChange(of: configuration.isPressed) { _, pressed in
                 if pressed {
                     UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                 }
